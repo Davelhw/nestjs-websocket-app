@@ -1,0 +1,35 @@
+Folder PATH listing for volume DAVEDATA
+Volume serial number is 00000096 CEA6:3231
+X:\DT.NESTJS\NESTJS-WEBSOCKET-APP
+|   .gitignore
+|   .prettierrc
+|   eslint.config.mjs
+|   files-structure.txt
+|   nest-cli.json
+|   package-lock.json
+|   package.json
+|   README.md
+|   Requirements.md
+|   tsconfig.build.json
+|   tsconfig.json
+|   
++---src
+|   |   app.controller.spec.ts
+|   |   app.controller.ts
+|   |   app.module.ts
+|   |   app.service.ts
+|   |   main.ts
+|   |   
+|   +---events
+|   |       events.gateway.spec.ts
+|   |       events.gateway.ts
+|   |       
+|   \---modules
+|       \---auth
+|               jwt.strategy.ts
+|               ws-jwt.guard.ts
+|               
+\---test
+        app.e2e-spec.ts
+        jest-e2e.json
+        
