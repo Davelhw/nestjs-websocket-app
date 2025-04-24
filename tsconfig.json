@@ -10,12 +10,19 @@
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
+    "paths": {
+      "src/*": ["src/*"]
+    },
     "incremental": true,
     "skipLibCheck": true,
-    "strictNullChecks": true,
+    "strict": true, // Enforce strict typing
+    "noImplicitAny": true, // Catch untyped variables
+    "strictNullChecks": true, // Ensure null safety
+    "strictBindCallApply": true, // Catch incorrect call/apply usages
     "forceConsistentCasingInFileNames": true,
-    "noImplicitAny": false,
-    "strictBindCallApply": false,
-    "noFallthroughCasesInSwitch": false
-  }
+    "noFallthroughCasesInSwitch": true, // Avoid unintended switch fallthrough
+    "strictPropertyInitialization": false
+  },
+  "include": ["src/**/*.ts"], // Specify source files
+  "exclude": ["node_modules", "dist", "**/*.spec.ts"] // Exclude unnecessary files
 }
