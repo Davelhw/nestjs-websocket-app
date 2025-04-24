@@ -1,24 +1,24 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { AdmUser } from './entities/admuser.entity';
+import { AdmUserEntity } from './entities/admuser.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()
 export class AdmUserService {
   constructor(
-    @InjectRepository(AdmUser)
-    private readonly userRepo: Repository<AdmUser>,
+    @InjectRepository(AdmUserEntity)
+    private readonly userRepo: Repository<AdmUserEntity>,
   ) {}
 
-  async findByUsername(username: string): Promise<AdmUser | null> {
+  async findByUsername(username: string): Promise<AdmUserEntity | null> {
     return this.userRepo.findOne({ where: { username } });
   }
 
-  async findById(id: string): Promise<AdmUser | null> {
+  async findById(id: string): Promise<AdmUserEntity | null> {
     return this.userRepo.findOne({ where: { id } });
   }
 
-  async save(user: AdmUser): Promise<AdmUser> {
+  async save(user: AdmUserEntity): Promise<AdmUserEntity> {
     return this.userRepo.save(user);
   }
 }

@@ -1,5 +1,5 @@
 import { Controller, Get, UseGuards, Request } from '@nestjs/common';
-import { JwtAuthGuard } from './modules/auth/jwt-auth.guard';
+import { JwtGuard } from './common/guards/jwt.guard';
 
 interface JwtUser {
   userId: number;
@@ -12,7 +12,7 @@ interface AuthenticatedRequest extends Request {
 
 @Controller()
 export class AppController {
-  @UseGuards(JwtAuthGuard)
+  @UseGuards(JwtGuard)
   @Get('profile')
   getProfile(@Request() req: AuthenticatedRequest) {
     return {

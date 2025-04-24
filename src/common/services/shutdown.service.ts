@@ -5,11 +5,7 @@ import {
   Logger,
 } from '@nestjs/common';
 import { DataSource } from 'typeorm';
-import {
-  AdminDataSource,
-  PeopleDataSource,
-  TapGameDataSource,
-} from '../../config/typeorm.config';
+import { AppDataSource } from '../../config/typeorm.config';
 
 @Injectable()
 export class ShutdownService implements OnModuleDestroy, OnApplicationShutdown {
@@ -28,9 +24,7 @@ export class ShutdownService implements OnModuleDestroy, OnApplicationShutdown {
   }
 
   private async closeConnections() {
-    await this.closeConnection(AdminDataSource, 'Adm DB');
-    await this.closeConnection(PeopleDataSource, 'People DB');
-    await this.closeConnection(TapGameDataSource, 'Tap DB');
+    await this.closeConnection(AppDataSource, 'Adm DB');
     // await this.closeConnection(AppDataSourceMq, 'MQ DB');
   }
 

@@ -6,21 +6,21 @@ import {
   ManyToMany,
   JoinTable,
 } from 'typeorm';
-import { AdmUser } from 'src/modules/admuser/entities/admuser.entity';
-import { Permission } from 'src/modules/permissions/entities/permission.entity';
+import { AdmUserEntity } from 'src/modules/admuser/entities/admuser.entity';
+import { PermissionEntity } from 'src/modules/permissions/entities/permission.entity';
 
 @Entity('roles')
-export class Role {
+export class RoleEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column({ unique: true })
   name: string;
 
-  @ManyToMany(() => AdmUser, (admuser) => admuser.roles)
-  admUsers: AdmUser[];
+  @ManyToMany(() => AdmUserEntity, (admuser) => admuser.roles)
+  admUsers: AdmUserEntity[];
 
-  @ManyToMany(() => Permission, (permission) => permission.roles)
+  @ManyToMany(() => PermissionEntity, (permission) => permission.roles)
   @JoinTable()
-  permissions: Permission[];
+  permissions: PermissionEntity[];
 }

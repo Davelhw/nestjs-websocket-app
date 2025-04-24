@@ -11,12 +11,13 @@ import { ShutdownService } from './common/services/shutdown.service';
 import { EnvConfigService } from './common/services/config.service';
 import { ConfigModules } from './config/modules.config';
 import { AuthModule } from './modules/auth/auth.module';
-import { RoleModule } from './modules/roles/role.module';
-import { PermissionModule } from './modules/permissions/permission.module';
-import { PeoplDbModule } from './database/external/people-db.module';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { EventsModule } from './modules/events/events.module';
 import { AdmUserModule } from './modules/admuser/admuser.module';
+import { PermissionModule } from './modules/permissions/permission.module';
+import { RoleModule } from './modules/roles/role.module';
+import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { AppDataSource } from './config/typeorm.config';
 
 @Module({
   imports: [
@@ -27,11 +28,14 @@ import { AdmUserModule } from './modules/admuser/admuser.module';
       isGlobal: true,
       ...ConfigModules,
     }),
-    PeoplDbModule,
+    TypeOrmModule.forRootAsync({
+      useFactory: (): TypeOrmModuleOptions => AppDataSource.options,
+    }),
     AuthModule,
     RoleModule,
-    PermissionModule,
     AdmUserModule,
+    PermissionModule,
+    RoleModule,
   ],
   controllers: [AppController],
   providers: [

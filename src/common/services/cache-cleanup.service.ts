@@ -4,12 +4,12 @@ import { Injectable, Logger, OnModuleInit } from '@nestjs/common';
 export class CacheCleanupService implements OnModuleInit {
   private readonly logger = new Logger(CacheCleanupService.name);
 
-  async onModuleInit() {
+  onModuleInit() {
     this.logger.log('Running cache cleanup...');
     setTimeout(() => this.clearCache(), 5000); // Run async without blocking
   }
 
-  async clearCache() {
+  clearCache() {
     try {
       // Your cache clearing logic here
       this.logger.log('Cache cleanup complete');

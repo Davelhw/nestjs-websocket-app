@@ -1,6 +1,6 @@
 // src/modules/admuser/entities/admuser.entity.ts
 
-import { Role } from 'src/modules/roles/entities/role.entity';
+import { RoleEntity } from 'src/modules/roles/entities/role.entity';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -10,7 +10,7 @@ import {
 } from 'typeorm';
 
 @Entity('adm_users')
-export class AdmUser {
+export class AdmUserEntity {
   @PrimaryGeneratedColumn('uuid') // 👈 change here
   id: string;
 
@@ -38,7 +38,7 @@ export class AdmUser {
   @Column({ default: true })
   isActive: boolean;
 
-  @ManyToMany(() => Role)
+  @ManyToMany(() => RoleEntity)
   @JoinTable()
-  roles: Role[];
+  roles: RoleEntity[];
 }
