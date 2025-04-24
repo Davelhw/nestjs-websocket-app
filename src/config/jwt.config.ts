@@ -10,7 +10,7 @@ export class JwtConfigService {
     return {
       secret: this.configService.get<string>(
         String(process.env.JWT_SECRET),
-        'cb60e06ec6480d6ce85cb40480d58d3e506e08be03c1645d603867e655397cbd',
+        '83d86db7f86cd0ad9cab4d94f73c4a5f211503ca150accb63d9a2a24646b76ce78d5fcb193a1e9e59260cbd2f286ac2f85bc1cc62f7c4543ffa60cbc80f22522',
       ),
       signOptions: {
         expiresIn: this.configService.get<string | number>(

@@ -10,4 +10,9 @@ Use @nestjs/config to manage JWT secret, and link user lookup logic (e.g., from 
 
 
 
+## generate JWT token
+
+node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
+
+
 

@@ -1,3 +1,11 @@
+export const AppDbConfig = () => ({
+  host: process.env.APP_DB_HOST,
+  port: parseInt(process.env.APP_DB_PORT || '3306', 10),
+  username: process.env.APP_DB_USERNAME,
+  password: process.env.APP_DB_PASSWORD,
+  database: process.env.APP_DB_NAME,
+});
+
 export const AdmDatabaseConfig = () => ({
   host: process.env.ADM_DB_HOST,
   port: parseInt(process.env.ADM_DB_PORT || '3306', 10),

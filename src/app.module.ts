@@ -1,7 +1,5 @@
-import { EventsGateway } from './events/events.gateway';
 import { JwtModule } from '@nestjs/jwt';
-import { JwtStrategy } from './modules/auth/jwt.strategy';
-import { WsJwtGuard } from './modules/auth/ws-jwt.guard';
+import { WsJwtGuard } from './common/guards/ws-jwt.guard';
 import { Module, MiddlewareConsumer, NestModule } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
@@ -16,6 +14,8 @@ import { AuthModule } from './modules/auth/auth.module';
 import { RoleModule } from './modules/roles/role.module';
 import { PermissionModule } from './modules/permissions/permission.module';
 import { PeoplDbModule } from './database/external/people-db.module';
+import { JwtStrategy } from './strategies/jwt.strategy';
+import { EventsModule } from './modules/events/events.module';
 
 @Module({
   imports: [
@@ -38,7 +38,7 @@ import { PeoplDbModule } from './database/external/people-db.module';
     CacheCleanupService,
     ShutdownService,
     EnvConfigService,
-    EventsGateway,
+    EventsModule,
     JwtStrategy,
     WsJwtGuard,
   ],
