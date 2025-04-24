@@ -16,6 +16,7 @@ import { PermissionModule } from './modules/permissions/permission.module';
 import { PeoplDbModule } from './database/external/people-db.module';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { EventsModule } from './modules/events/events.module';
+import { AdmuserModule } from './modules/admuser/admuser.module';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { EventsModule } from './modules/events/events.module';
     AuthModule,
     RoleModule,
     PermissionModule,
+    AdmuserModule,
   ],
   controllers: [AppController],
   providers: [
